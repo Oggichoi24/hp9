@@ -77,6 +77,10 @@ a{
 
 <h2>Create Account</h2>
 
+{% for message in messages %}
+  <p class="error">{{ message }}</p>
+{% endfor %}
+
 <form method="POST">
 {% csrf_token %}
 
