@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shop Laptop</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+    color:#007bff;
+}
+
+.nav a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#333;
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    margin:30px 0 10px;
+    font-size:26px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+    gap:20px;
+    padding:20px 40px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* IMAGE */
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+/* TEXT */
+.card h3{
+    margin:10px 0 5px;
+    font-size:18px;
+}
+
+.spec{
+    font-size:13px;
+    color:#666;
+}
+
+.price{
+    color:#007bff;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:10px;
+    width:100%;
+    padding:8px;
+    border:none;
+    border-radius:6px;
+    background:#007bff;
+    color:white;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#0056b3;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">💻 MyShop</div>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/add/">Add</a>
+        <a href="/login/">Login</a>
+    </div>
+</div>
+
+<h2 class="title">Danh sách Laptop</h2>
+
+<div class="grid">
+
+{% for product in products %}
+<div class="card">
+
+<img src="https://via.placeholder.com/300x200">
+
+<h3>{{ product.name }}</h3>
+<p class="spec">{{ product.brand }} - {{ product.cpu }}</p>
+<p class="spec">RAM {{ product.ram }}GB | {{ product.storage }}GB</p>
+
+<p class="price">{{ product.price }} VND</p>
+
+<button class="btn">Mua ngay</button>
+
+</div>
+{% empty %}
+<p style="text-align:center;">Chưa có sản phẩm</p>
+{% endfor %}
+
+</div>
+
+</body>
+</html>
